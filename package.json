@@ -1,11 +1,57 @@
 {
-  "name": "mico-leao-revived",
-  "version": "1.0.0",
-  "main": "index.js",
-  "dependencies": {
-    "stremio-addon-sdk": "^1.13.0",
-    "axios": "^1.7.0",
-    "cheerio": "^1.0.0-rc.12",
-    "node-html-parser": "^6.0.0"
+  "id": "br.micoleao.revived",
+  "version": "2.1.0",
+  "name": "Mico Leão Revived - Dublado PT",
+  "description": "Filmes e séries dublados em português brasileiro, revivido e otimizado para Stremio.",
+  "resources": [
+    "catalog",
+    "meta"
+  ],
+  "provides": [
+    "video"
+  ],
+  "catalogs": [
+    {
+      "type": "movie",
+      "id": "dublado.filmes",
+      "name": "Filmes Dublados",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        },
+        {
+          "name": "genre",
+          "isRequired": false
+        }
+      ],
+      "extraSupported": {
+        "search": ["string"]
+      }
+    },
+    {
+      "type": "series",
+      "id": "dublado.series",
+      "name": "Séries Dubladas",
+      "extra": [
+        {
+          "name": "search",
+          "isRequired": false
+        }
+      ]
+    }
+  ],
+  "behaviorHints": {
+    "configurable": true,
+    "configuration": {
+      "fields": [
+        {
+          "name": "cache_ttl",
+          "label": "Tempo de cache (segundos)",
+          "type": "number",
+          "default": 3600
+        }
+      ]
+    }
   }
 }
